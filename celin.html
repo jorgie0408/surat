@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Cinta Interaktif 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff0f5;
+      border: 2px solid pink;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .card-container {
+      display: none;
+      position: relative;
+      width: 500px;
+      height: 600px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: hotpink;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: deeppink;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Tampilan Awal (Amplop) -->
+<div class="envelope" onclick="openLetter()">
+  <h2>📩 Ada surat buat kamu!</h2>
+  <p>Klik untuk membuka 💌</p>
+</div>
+
+<!-- Konten Surat Cinta -->
+<div class="card-container">
+  <div class="slide">
+    <img src="1.jpg" alt="Foto kenangan">
+    <p>Ingat waktu ini? Aku gak akan lupa kecantikan kamu 💫</p>
+  </div>
+  <div class="slide">
+    <img src="2.jpg" alt="Foto kenangan">
+    <p>Kamu dan aku, akan selalu bersama. 💍</p>
+  </div>
+  <div class="slide">
+    <img src="3.jpg" alt="Foto kenangan">
+    <p>Walaupun tingkahmu random, aku akan selalu menyukaimu</p>
+  </div>
+  <div class="slide">
+    <img src="4.jpg" alt="Foto kenangan">
+    <p>I LOVE U Sayangggggg</p>
+  </div>
+
+  <div class="navigation">
+    <button onclick="prevSlide()">← Sebelumnya</button>
+    <button onclick="nextSlide()">Berikutnya →</button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  }
+
+  function openLetter() {
+    document.querySelector('.envelope').style.display = 'none';
+    document.querySelector('.card-container').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
